@@ -212,29 +212,28 @@ def chat():
 def chat_about_emails(user_message):
     gmail = get_gmail_service()
     
-
     results = gmail.users().messages().list(userId="me", maxResults=10).execute()
     messages = results.get("messages", [])
     
-    email_summaries = []
+    email_descriptions = []
     for message in messages:
         email_id = message["id"]
         if email_id in email_cache:
-            email_summaries.append(email_cache[email_id]["subject"])
+            email_descriptions.append(email_cache[email_id]["description"])
         else:
             msg = gmail.users().messages().get(userId="me", id=email_id).execute()
             email_content = get_email_content(msg)
-            summary = summarize_email(email_content)
-            email_summaries.append(summary)
+            description = describe_email(email_content)
+            email_descriptions.append(description)
     
-    email_context = "\n".join(f"- {summary}" for summary in email_summaries)
+    email_context = "\n".join(f"- {description}" for description in email_descriptions)
     
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are an simplemail, you help users discuss their recent emails in a casual manner You have access to summaries of their 10 most recent emails. Keep your responses very brief but to the point, recognize the importance of each email and respond accordingly."},
-                {"role": "user", "content": f"Here are summaries of my recent emails:\n{email_context}\n\nUser question: {user_message}"},
+                {"role": "system", "content": "You are an simplemail, you help users discuss their recent emails in a casual manner You have access to descriptions of their 10 most recent emails. Keep your responses very brief but to the point, recognize the importance of each email and respond accordingly."},
+                {"role": "user", "content": f"Here are descriptions of my recent emails:\n{email_context}\n\nUser question: {user_message}"},
             ],
             max_tokens=150,
             temperature=0.7,

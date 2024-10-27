@@ -1,29 +1,24 @@
-#  Welcome to **SimpleMail** 
+# 📧 Simplemail
 
-Steps to setup dev enivornment
+## 🚀 Simplify Your Inbox, Amplify Your Productivity
 
-##  Setup Instructions
+Simplemail is your personal email assistant, transforming cluttered inboxes into clear, actionable insights. We leverage cutting-edge AI to summarize your emails into bite-sized pieces and compile them into quick-to-read reports.
 
-### 1. Create a Virtual Environment
-Open your terminal and run the following commands:
+### 🌟 Key Features
 
-```bash
-python3 -m venv venv
-source venv/bin/activate
-```
+- **Email Summarization**: AI-powered technology condenses long emails into concise summaries.
+- **Compiled Reports**: Get a clear overview of your inbox with neatly organized summaries.
+- **AI Chatbot Integration**: Engage in conversations about your emails for deeper insights.
 
-### 2. Install Requirements
+## 🛠️ Technology Stack
 
-Once the virtual environment is activated, install the dependencies:
+Simplemail is built using a robust and modern tech stack:
 
-```bash
-pip3 install -r requirements.txt
-```
+- **Frontend**: HTML and Tailwind CSS with Jinja
+- **Backend**: Flask Python
+- **AI Integration**: OpenAI's GPT models for email summarization and chatbot functionality
+- **Styling**: Tailwind CSS for a sleek, responsive design
+- **API**: OpenAI API and GmailAPI
 
-### 3. Run the Application
+<p align="center">Made with ❤️ by Travis, Syed and Peter.</p>
 
-You’re all set! Start the app in debug mode with:
-
-```bash
-flask run --debug
-```

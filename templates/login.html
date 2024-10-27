@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simplemail</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000000;
+        }
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .hero-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem; 
+            font-weight: 700; 
+            color: #ffffff; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+        }
+        .halloween-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('halloween-overlay.png'); 
+            pointer-events: none; 
+            z-index: 10;
+        }
+        .ghost {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            animation: floating 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center"
+      style="background: linear-gradient(-45deg, #000000, #808080, #000000, #808080);
+             background-size: 400% 400%;
+             animation: gradient 15s ease-in infinite;">
+    <div class="halloween-overlay"></div>
+    <img src="{{ url_for('static', filename='images.png') }}" class="ghost" alt="Floating Ghost">
+
+
+    <div class="hero-text mb-8 text-center w-full text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+        Simplemail<br>Your better AI mailbox.
+    </div>
+
+
+    <div class="text-center">
+        <a href="{{ url_for('login') }}" class="bg-black hover:bg-gray-800 text-white font-semibold py-2 px-8 md:py-4 md:px-12 rounded-full transition duration-300 ease-in-out inline-flex items-center text-sm md:text-lg shadow-lg">
+            <svg class="w-6 h-6 md:w-8 md:h-8 mr-2 md:mr-4 rounded-full" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
+            </svg>
+            Connect your Mailbox
+        </a>
+    </div>
+
+
+
+</body>
+</html>

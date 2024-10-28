@@ -239,7 +239,7 @@ def chat_about_emails(user_message):
             temperature=0.7,
         )
         return response.choices[0].message["content"].strip()
-    except openai.error.InvalidRequestError as e:
+    except openai.error.InvalidRequestError as e:                       
         print(f"Error in chat response: {str(e)}")
         return "I'm sorry, I'm having trouble processing your request right now. Can you try asking something else?"
 

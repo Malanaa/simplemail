@@ -7,7 +7,7 @@ Simplemail is your personal email assistant, transforming cluttered inboxes into
 ### 🌟 Key Features
 
 - **Email Summarization**: AI-powered technology condenses long emails into concise summaries.
-- **Compiled Reports**: Get a clear overview of your inbox with neatly organized summaries.
+- **Categorization**: Get a quick idea of email subject through AI-powered email categorization.
 - **AI Chatbot Integration**: Engage in conversations about your emails for deeper insights.
 
 ## 🛠️ Technology Stack
